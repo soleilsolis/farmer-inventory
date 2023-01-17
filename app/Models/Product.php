@@ -13,6 +13,7 @@ class Product extends Model
         'name',
         'price',
         'description',
+        'product_type_id'
     ];
 
     public function productType()

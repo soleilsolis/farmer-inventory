@@ -38,3 +38,6 @@
         </div>
     </div>
 </x-app-layout>
+
+@section('title', "Dashboard")
+    

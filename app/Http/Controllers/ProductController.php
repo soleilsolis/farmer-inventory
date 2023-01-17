@@ -48,6 +48,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
+            'product_type_id' => $request->product_type_id,
         ]);
 
         return response()->json(compact('data'));
