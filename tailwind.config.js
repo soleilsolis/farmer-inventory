@@ -1,18 +1,22 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./resources/**/*.blade.php",
-    "./resources/**/*.js",
-    "./resources/**/*.vue",
-    "./node_modules/flowbite/**/*.js"
-  ],
-  theme: {
-    extend: {},
-    fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      serif: ['Merriweather', 'serif'],
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './vendor/laravel/jetstream/**/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+    ],
+
+    theme: {
+        extend: {
+        
+        },
+        fontFamily: {
+            sans: ['Sofia Sans', 'sans-serif'],
+        },
     },
-  },
-  plugins: [
-      require('flowbite/plugin')
-  ],
-}
+
+    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+};

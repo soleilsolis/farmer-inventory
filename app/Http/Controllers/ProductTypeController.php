@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ProductType;
 use App\Http\Requests\StoreProductTypeRequest;
 use App\Http\Requests\UpdateProductTypeRequest;
+use Illuminate\Http\Request;
 
 class ProductTypeController extends Controller
 {
@@ -15,7 +16,9 @@ class ProductTypeController extends Controller
      */
     public function index()
     {
-        //
+        $productTypes = ProductType::all();
+
+        return view('productTypes', compact('productTypes'));
     }
 
     /**
@@ -25,7 +28,9 @@ class ProductTypeController extends Controller
      */
     public function create()
     {
-        //
+
+
+        return view('productTypes-new');
     }
 
     /**
@@ -36,7 +41,11 @@ class ProductTypeController extends Controller
      */
     public function store(StoreProductTypeRequest $request)
     {
-        //
+        $data = ProductType::create([
+            'name' => $request->name
+        ]);
+
+        return response()->json(compact('data'));
     }
 
     /**
@@ -45,9 +54,11 @@ class ProductTypeController extends Controller
      * @param  \App\Models\ProductType  $productType
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductType $productType)
+    public function show(ProductType $productType, Request $request)
     {
-        //
+        $data = $productType->find($request->id);
+
+        return response()->json(compact('data'));
     }
 
     /**
@@ -56,9 +67,11 @@ class ProductTypeController extends Controller
      * @param  \App\Models\ProductType  $productType
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductType $productType)
+    public function edit(ProductType $productType, Request $request)
     {
-        //
+        $productType = $productType->find($request->id);
+
+        return view('productType', compact('productType'));
     }
 
     /**
@@ -70,7 +83,11 @@ class ProductTypeController extends Controller
      */
     public function update(UpdateProductTypeRequest $request, ProductType $productType)
     {
-        //
+        $data = $productType->findOrFail($request->id);
+        $data->name = $request->name;
+        $data->save();
+
+        return response()->json(compact('data'));
     }
 
     /**
@@ -79,8 +96,9 @@ class ProductTypeController extends Controller
      * @param  \App\Models\ProductType  $productType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ProductType $productType)
+    public function destroy(ProductType $productType, Request $request)
     {
-        //
+        $data = $productType->findOrFail($request->id);
+        $data->delete();
     }
 }
