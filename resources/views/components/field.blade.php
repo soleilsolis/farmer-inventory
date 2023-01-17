@@ -1,4 +1,4 @@
-<div class="mb-8">
+<div class="mb-4">
     <label for="{{ $attributes->get('id') }}" class="label block mb-1 text-sm font-semibold text-gray-900  ">
 		{{ $attributes->get('label') }}
 	</label>
