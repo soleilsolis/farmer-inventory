@@ -17,7 +17,7 @@ use App\Models\Product;
 */
 
 Route::get('/', function () {
-    return redirect('login');
+    return view('welcome');
 });
 
 Route::middleware([

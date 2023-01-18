@@ -28,8 +28,6 @@ class ProductTypeController extends Controller
      */
     public function create()
     {
-
-
         return view('productTypes-new');
     }
 
