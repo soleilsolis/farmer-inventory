@@ -34,7 +34,7 @@
                         <div class="flex flex-row flex-wrap mt-10">
     
                             @foreach ($product->variants as $variant)
-                                <a href="">
+                                <a href="/product/{{ $product->id }}/variant/{{ $variant->id }}">
                                     <img class="w-16 aspect-square object-cover" src="/{{ "storage".$variant->image->path }}" alt="">
                                 </a>
                             @endforeach
