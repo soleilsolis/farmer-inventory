@@ -42,16 +42,15 @@ Route::middleware([
     
     Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-show');
 
-
+    Route::middleware('admin')->get('/product/{id}/variant/new', [VariantController::class, 'create'])->name('variant-new');
     Route::get('/product/{id}/variant/{variant_id}', [ProductController::class, 'show'])->name('product-show');
     
-
 
     Route::middleware('admin')->group(function(){
         Route::get('/productTypes/new', [ProductTypeController::class, 'create'])->name('productTypes-new');
         Route::get('/products/new', [ProductController::class, 'create'])->name('products-new');
             Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product-edit');
-            Route::get('/product/{id}/variant/new', [VariantController::class, 'create'])->name('variant-new');
+            
             Route::get('/variant/{id}/edit', [VariantController::class, 'edit'])->name('variant-edit');
             Route::get('/sms-blast', [MessageController::class, 'index'])->name('sms-blast');
     });
