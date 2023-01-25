@@ -11,7 +11,7 @@
                 <div class="grid md:grid-cols-2 grid-cols-1 md:gap-5 gap-y-10">
                     <div>
                         <img class="aspect-square rounded-xl md:w-[70%] mx-auto object-cover"
-                            src="{{ '/storage' . $product->image->path }}" alt="">
+                            src="{{ $variant ? "storage".$variant->image->path : '/storage' . $product->image->path }}" alt="">
                     </div>
                     <div>
                         <h1 class="font-medium text-3xl text-gray-800 leading-tight ">
