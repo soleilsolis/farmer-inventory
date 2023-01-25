@@ -36,7 +36,7 @@ class ImageController extends Controller
      */
     public static function store($file, $id, $model)
     {
-        $path = $file->store('public/product-images');
+        $path = $file->store('public/profile-photos');
 
         $image = Image::create([
             'path' => ltrim($path, "public"),
