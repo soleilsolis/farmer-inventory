@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Variant;
 use App\Models\ProductType;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\ImageController;
 
 class ProductController extends Controller
 {
@@ -17,10 +20,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::limit(10)->get();
 
         return view('products', compact('products'));
-
     }
 
     /**
@@ -51,6 +53,8 @@ class ProductController extends Controller
             'product_type_id' => $request->product_type_id,
         ]);
 
+        ImageController::store($request->file('image'), $data->id, 'App\Models\Product');
+
         return response()->json(compact('data'));
     }
 
@@ -62,9 +66,13 @@ class ProductController extends Controller
      */
     public function show(Product $product, Request $request)
     {
-        $data = $product->find($request->id);
+        $product = $product->findOrFail($request->id);
+        $productTypes = ProductType::all();
+        $variant = $request->variant_id ? Variant::findOrFail($request->variant_id) : null;
+        $productsRandom = Product::inRandomOrder()->limit(5)->get();
 
-        return response()->json(compact('data'));
+        return view('product-show', compact('product', 'productTypes', 'variant','productsRandom'));
+        
     }
 
     /**
@@ -78,7 +86,7 @@ class ProductController extends Controller
         $product = $product->findOrFail($request->id);
         $productTypes = ProductType::all();
 
-        return view('product', compact('product', 'productTypes'));
+        return view('product-edit', compact('product', 'productTypes'));
     }
 
     /**
@@ -95,6 +103,11 @@ class ProductController extends Controller
         $data->price = $request->price;
         $data->description = $request->description;
         $data->product_type_id = $request->product_type_id;
+
+        if($request->file('image')) {
+            ImageController::store($request->file('image'), $data->id, 'App\Models\Product');
+        }
+
         $data->save();
 
         return response()->json(compact('data'));
@@ -110,5 +123,7 @@ class ProductController extends Controller
     {
         $data = $product->findOrFail($request->id);
         $data->delete();
+
+        return response()->json([]);
     }
 }

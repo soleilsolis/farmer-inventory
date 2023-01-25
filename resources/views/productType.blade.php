@@ -1,12 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight ">
-            {{ __($productType->name) }}
+        <h2 class="font-semibold text-2xl text-gray-800 leading-tight ">
+           Product Type - {{ __($productType->name) }}
         </h2>
     </x-slot>
 
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative">
+            @if (\App\Models\User::find(\Illuminate\Support\Facades\Auth::id())->admin)
             <form class="md:w-[50%] submit-form"
                 data-method="POST"
                 data-action="/productType/{{ $productType->id }}"
@@ -15,6 +16,7 @@
                 <x-field id="name" name="name" type="text" label="Name" value="{{ __($productType->name) }}"></x-field>   
                 <x-button type="submit">Save</x-button>
             </form>
+            @endif
 
             <div class="overflow-hidden px-4">
                 <section
@@ -22,10 +24,10 @@
 
                     @foreach ($productType->products as $product)
                         <!--   ✅ Product card 1 - Starts Here 👇 -->
-                        <div class="w-72 bg-white shadow-md rounded-xl duration-500  hover:shadow-xl">
+                        <div class="md:w-72 w-full bg-white shadow-md rounded-xl duration-500  hover:shadow-xl">
                             <a href="/product/{{ $product->id }}">
-                                <img src="https://images.unsplash.com/photo-1646753522408-077ef9839300?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8NjZ8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
-                                    alt="Product" class="h-80 w-72 object-cover rounded-t-xl" />
+                                <img src="{{ "/storage".$product->image->path }}"
+                                    alt="Product" class="md:h-80 md:w-72 aspect-square object-cover rounded-t-xl" />
                                 <div class="px-4 py-3 w-72">
                                     <span class="text-gray-400 mr-3 uppercase text-xs">{{ $product->productType->name }}</span>
                                     <p class="text-lg font-bold text-black truncate block capitalize">{{ $product->name }}</p>

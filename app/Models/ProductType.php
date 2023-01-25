@@ -17,4 +17,9 @@ class ProductType extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable')->latestOfMany();
+    }
 }

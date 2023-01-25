@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight ">
+        <h2 class="font-semibold text-2xl text-gray-800 leading-tight ">
             {{ __("New Product") }}
         </h2>
     </x-slot>
@@ -13,7 +13,9 @@
                 data-callback="show"
             >
                 <x-field id="name" name="name" type="text" label="Name" ></x-field>   
-                <x-field id="price" name="price" type="number" label="Price" ></x-field>   
+                <x-field id="price" name="price" type="number" label="Price" ></x-field>  
+                <x-field id="image" name="image" type="file" label="Image" ></x-field>   
+
                 <x-field id="product_type_id" name="product_type_id" type="select" label="Product Type" >
                     @foreach ($productTypes as $productType)
                         <option value="{{ $productType->id }}">{{ $productType->name }}</option>

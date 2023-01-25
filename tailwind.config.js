@@ -14,7 +14,7 @@ module.exports = {
         
         },
         fontFamily: {
-            sans: ['Sofia Sans', 'sans-serif'],
+            sans: ['Roboto', 'sans-serif'],
         },
     },
 

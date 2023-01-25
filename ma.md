@@ -1,13 +1,13 @@
-main site
--home page
--login 
--register
--product list
--account settings page
+X add number in registration
+X Upload Photo
 
-admin page (login, register and 2FA page automatically added)
--dashboard (with statistics)
--products page (with add product form)
--product (view, edit, delete)
--product type (add, view, edit, delete)
--user/farmer list
+x product variant
+X variant edit
+X variant delete
+X product delete
+
+-SMS send api
+
+-registration page ui
+-Product page ui (print photo and description and variants)
+-SMS forms ui

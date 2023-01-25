@@ -1,13 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight ">
+        <h2 class="font-semibold text-2xl text-gray-800 leading-tight ">
             {{ __('Product Types') }}
         </h2>
 
-        <div class="mt-4">
-            <x-button class="mt-1" onclick="location.href='/productTypes/new'">New</x-button>
 
-        </div>
+    @if (\App\Models\User::find(\Illuminate\Support\Facades\Auth::id())->admin)
+    <div class="mt-4">
+        <x-button class="mt-1" onclick="location.href='/productTypes/new'">New</x-button>
+
+    </div>
+    @endif
+       
     </x-slot>
 
     <div class="pb-12">

@@ -1,6 +1,30 @@
 {
+  "resources/image/bg-app.svg": {
+    "file": "assets/bg-app-d7b397a5.svg",
+    "src": "resources/image/bg-app.svg"
+  },
+  "resources/image/bbb.svg": {
+    "file": "assets/bbb-de9db1a6.svg",
+    "src": "resources/image/bbb.svg"
+  },
+  "resources/image/bg-guest.svg": {
+    "file": "assets/bg-guest-3dbc116f.svg",
+    "src": "resources/image/bg-guest.svg"
+  },
+  "resources/image/bg-guest.png": {
+    "file": "assets/bg-guest-ce68d7e5.png",
+    "src": "resources/image/bg-guest.png"
+  },
+  "resources/image/bg.svg": {
+    "file": "assets/bg-068ad94b.svg",
+    "src": "resources/image/bg.svg"
+  },
+  "resources/image/pellet.png": {
+    "file": "assets/pellet-adbaee29.png",
+    "src": "resources/image/pellet.png"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-34a88213.css",
+    "file": "assets/app-01d049dd.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },

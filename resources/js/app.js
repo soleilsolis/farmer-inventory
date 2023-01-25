@@ -10,6 +10,7 @@ Alpine.plugin(focus);
 
 Alpine.start();
 
+import.meta.glob(['../image/**'])
 
 document.querySelectorAll(".submit-form").forEach(
     (form) =>

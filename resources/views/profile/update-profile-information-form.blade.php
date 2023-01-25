@@ -81,6 +81,13 @@
                 @endif
             @endif
         </div>
+
+        <!-- Phone Number -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="number" value="{{ __('Phone Number') }}" />
+            <x-jet-input id="number" type="text" class="mt-1 block w-full" wire:model.defer="state.number" autocomplete="number" />
+            <x-jet-input-error for="number" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">

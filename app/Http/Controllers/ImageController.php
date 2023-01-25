@@ -34,9 +34,16 @@ class ImageController extends Controller
      * @param  \App\Http\Requests\StoreImageRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreImageRequest $request)
+    public static function store($file, $id, $model)
     {
-        //
+        $path = $file->store('public/product-images');
+
+        $image = Image::create([
+            'path' => ltrim($path, "public"),
+            'imageable_type' => $model,
+            'imageable_id' => $id,
+        ]);
+         
     }
 
     /**

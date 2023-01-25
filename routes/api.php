@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\VariantController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +42,18 @@ Route::controller(ProductController::class)->group(function() {
     Route::post('/products', 'store');
     Route::post('/product/{id}', 'update');
     Route::delete('/product/{id}', 'destroy');
+});
+
+Route::controller(VariantController::class)->group(function() {
+    Route::get('/variant/{id}', 'show');
+    Route::post('/variants', 'store');
+    Route::post('/variant/{id}', 'update');
+    Route::delete('/variant/{id}', 'destroy');
+});
+
+
+Route::controller(MessageController::class)->group(function() {
+    Route::post('/messages', 'store');
 });
 
 Route::controller(User::class)->group(function() {
