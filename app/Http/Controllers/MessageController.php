@@ -7,6 +7,17 @@ use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
 use Illuminate\Support\Facades\Http;
 
+use Carbon\Carbon;
+
+use Validator;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
+use Twilio\Rest\Client;
+
 use App\Models\User;
 
 class MessageController extends Controller
@@ -39,25 +50,26 @@ class MessageController extends Controller
      */
     public function store(StoreMessageRequest $request)
     {
-        $users = User::all();
+        $sid = 'AC9cbed9e9aa7f8f33eab98ff8d7616062';
+        $token = 'd99cb958c88b869047a56215c8c13281';
+        $client = new Client($sid, $token);
 
-        $phones = array();
+        foreach (User::all() as $user) {
+            if ($user->number) {
 
-        foreach ($users as $user) {
-            if($user->number){
-                $phones[] = $user->number;
+                $client->messages->create(
+                    // the number you'd like to send the message to
+                    '+63' . ltrim($user->number, '0'),
+                    [
+                        // A Twilio phone number you purchased at twilio.com/console
+                        'from' => '+15746525849',
+                        // the body of the text message you'd like to send
+                        'body' => $request->value
+                    ]
+                );
+                
             }
         }
-
-        $phones = array_values($phones);
-
-        $response = Http::post("https://api.itexmo.com/api/broadcast", [
-            "Email" => "rgrjbv2@gmail.com",
-            "Password" => "pOlaUdumlenC",
-            "ApiCode" => "PR-ROGER715992_L0KUM",
-            "Recipients" => json_encode($phones),
-            "Message" => $request->value,
-        ]);
 
         $message = Message::create([
             'value' => $request->value,
@@ -75,6 +87,19 @@ class MessageController extends Controller
     public function show(Message $message)
     {
         //
+    }
+
+    public function next(Request $request)
+    {
+
+        foreach (User::all() as $user) {
+           
+        }
+
+
+        return response()->json([
+            'reload' => 1
+        ]);
     }
 
     /**
