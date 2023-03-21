@@ -21,7 +21,7 @@
                         <!--   ✅ User card 1 - Starts Here 👇 -->
                         <div class="md:w-72 w-full bg-white shadow-md rounded-xl duration-500  hover:shadow-xl">
                             <a >
-                                <img src="{{ 'storage' . $user->profile_photo_path }}" alt="User"
+                                <img src="{{ '/storage/' . $user->profile_photo_path }}" alt="User"
                                     class="md:h-80 md:w-72 aspect-square object-cover rounded-t-xl" />
                                 <div class="px-4 py-3 w-72">
                                     <span
