@@ -27,12 +27,9 @@
                     <x-field id="description" name="description" type="text" label="Description"
                         value="{{ __($product->description) }}"></x-field>
                     <x-button type="submit">Save</x-button>
-                    
-              
-
                 </div>
 
-                <div >
+                <div>
                     <img class="aspect-square rounded-xl md:w-[70%] mx-auto object-cover"
                         src="{{ '/storage' . $product->image->path }}" alt="">
                 </div>
@@ -42,7 +39,6 @@
                 data-callback="destroy" class="submit-form inline">
 
                 <x-button-danger type="submit">Delete</x-button-danger>
-
             </form>
 
             <div id="toast-success"
@@ -106,17 +102,10 @@
             </x-table>
 
         </div>
-
-  
     </div>
 
     <script>
-        function show(result) {
-            document.getElementById("toast-success").classList.remove("hidden", "opacity-0");
-        }
-
-        function destroy(result) {
-            location.href = "/products";
-        }
+        const show = (result) => document.getElementById("toast-success").classList.remove("hidden", "opacity-0");
+        const destroy = (result) => location.href = "/products";
     </script>
 </x-app-layout>

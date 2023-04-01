@@ -15,16 +15,11 @@
                 <x-field id="name" name="name" type="text" label="Name"></x-field>   
                 <x-button type="submit">Save</x-button>
             </form>
-
-        
         </div>
     </div>
     <script>
         function show(result){
-            
             location.href= `/productType/${result.data.id}`;
         }
-
-        
     </script>
 </x-app-layout>
