@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Variant;
 use App\Models\ProductType;
+use App\Models\Message;
+use App\Models\User;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MessageController;
+use Twilio\Rest\Client;
 
 class ProductController extends Controller
 {
@@ -35,7 +39,6 @@ class ProductController extends Controller
         $productTypes = ProductType::all();
 
         return view('product-new', compact('productTypes'));
-
     }
 
     /**
@@ -71,8 +74,7 @@ class ProductController extends Controller
         $variant = $request->variant_id ? Variant::findOrFail($request->variant_id) : null;
         $productsRandom = Product::inRandomOrder()->limit(5)->get();
 
-        return view('product-show', compact('product', 'productTypes', 'variant','productsRandom'));
-        
+        return view('product-show', compact('product', 'productTypes', 'variant', 'productsRandom'));
     }
 
     /**
@@ -100,11 +102,39 @@ class ProductController extends Controller
     {
         $data = $product->findOrFail($request->id);
         $data->name = $request->name;
-        $data->price = $request->price;
+
         $data->description = $request->description;
         $data->product_type_id = $request->product_type_id;
 
-        if($request->file('image')) {
+        if ($request->price) {
+            $data->price = $request->price;
+
+            $sid = 'AC9eda852d2054096821b4e7c4031e0c8c';
+            $token = '9c94a0d8857e673c149474c8be9ad56d';
+            $client = new Client($sid, $token);
+
+            foreach (User::all() as $user) {
+                if ($user->number) {
+
+                    $client->messages->create(
+                        // the number you'd like to send the message to
+                        '+63' . ltrim($user->number, '0'),
+                        [
+                            // A Twilio phone number you purchased at twilio.com/console
+                            'from' => '+15855844760',
+                            // the body of the text message you'd like to send
+                            'body' => "Mga ka Agri! Nag bago ang presyo ng {$data->name} ({$data->price}). Maraming Salamat"
+                        ]
+                    );
+                }
+            }
+
+            $message = Message::create([
+                'value' => $request->value,
+            ]);
+        }
+
+        if ($request->file('image')) {
             ImageController::store($request->file('image'), $data->id, 'App\Models\Product');
         }
 
