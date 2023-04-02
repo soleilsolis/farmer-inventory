@@ -126,12 +126,15 @@ class ProductController extends Controller
                             'body' => "Mga ka Agri! Nag bago ang presyo ng {$data->name} ({$data->price}). Maraming Salamat"
                         ]
                     );
+
+                    $message = Message::create([
+                        'value' => $request->value,
+                    ]);
                 }
+
             }
 
-            $message = Message::create([
-                'value' => $request->value,
-            ]);
+          
         }
 
         if ($request->file('image')) {

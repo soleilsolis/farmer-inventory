@@ -67,13 +67,13 @@ class MessageController extends Controller
                         'body' => $request->value
                     ]
                 );
-                
+                $message = Message::create([
+                    'value' => $request->value,
+                ]);
             }
         }
 
-        $message = Message::create([
-            'value' => $request->value,
-        ]);
+    
 
         return response()->json([]);
     }
