@@ -115,7 +115,7 @@ class ProductController extends Controller
 
             foreach (User::all() as $user) {
                 if ($user->number) {
-
+                    $message = "Mga ka Agri! Nag bago ang presyo ng {$data->name} ({$data->price}). Maraming Salamat";
                     $client->messages->create(
                         // the number you'd like to send the message to
                         '+63' . ltrim($user->number, '0'),
@@ -128,7 +128,7 @@ class ProductController extends Controller
                     );
 
                     $message = Message::create([
-                        'value' => $request->value,
+                        'value' => $message,
                     ]);
                 }
 
