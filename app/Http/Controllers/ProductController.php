@@ -106,7 +106,7 @@ class ProductController extends Controller
         $data->description = $request->description;
         $data->product_type_id = $request->product_type_id;
 
-        if ($request->price) {
+        if ($request->price != $data->price) {
             $data->price = $request->price;
 
             $sid = 'AC9eda852d2054096821b4e7c4031e0c8c';
