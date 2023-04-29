@@ -1,3 +1,7 @@
+@php
+    use App\Models\User;
+    $admin = \App\Models\User::find(\Illuminate\Support\Facades\Auth::id())->admin;
+@endphp
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 ">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,7 +32,7 @@
                         {{ __('Products') }}
                     </x-jet-nav-link>
                 </div>
-                @if (\App\Models\User::find(\Illuminate\Support\Facades\Auth::id())->admin)
+                @if ($admin)
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
                         {{ __('Users') }}
@@ -182,10 +186,11 @@
             <x-jet-responsive-nav-link href="{{ route('products') }}" :active="request()->routeIs('products')">
                 {{ __('Products') }}
             </x-jet-responsive-nav-link>
-            @if (\App\Models\User::find(\Illuminate\Support\Facades\Auth::id())->admin)
-            <x-jet-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
-                {{ __('Users') }}
-            </x-jet-responsive-nav-link>
+            
+            @if ($admin)
+                <x-jet-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
+                    {{ __('Users') }}
+                </x-jet-responsive-nav-link>
             
                 <x-jet-responsive-nav-link href="{{ route('sms-blast') }}" :active="request()->routeIs('sms-blast')">
                     {{ __('SMS Blast') }}

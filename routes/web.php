@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
+
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VariantController;
@@ -32,7 +34,10 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         $products = Product::all();
-        return view('dashboard', compact('products'));
+
+        $weather = json_decode(Http::get("https://api.weatherapi.com/v1/forecast.json?key=bc1d071e2cf04b6ea0a184710231604&q=Roxas,Isabela&days=5")->body());
+       
+        return view('dashboard', compact('products','weather'));
     })->name('dashboard');
 
     Route::get('/productTypes', [ProductTypeController::class, 'index'])->name('productTypes');

@@ -1,3 +1,8 @@
+@php
+    use App\Models\User;
+    $admin = \App\Models\User::find(\Illuminate\Support\Facades\Auth::id())->admin;
+@endphp
+
 <x-app-layout>
     <x-slot name="header">
         <nav class="flex mb-5" aria-label="Breadcrumb">
@@ -26,8 +31,7 @@
 
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative ">
-           
-
+        
             <div class="rounded-xl bg-gray-50 py-10 shadow-lg">
                 <div class="grid md:grid-cols-2 grid-cols-1 md:gap-5 gap-y-10">
                     <div>

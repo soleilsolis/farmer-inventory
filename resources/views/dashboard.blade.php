@@ -1,12 +1,19 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-2xl text-gray-800 leading-tight ">
-            {{ __('New Products') }}
+            {{ __('Dashboard') }}
         </h2>
     </x-slot>
 
     <div class="pb-12">
+        
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <x-weather :weather=$weather> </x-weather>
+
+            <h2 class="font-semibold text-2xl text-gray-800 leading-tight mb-6">
+                {{ __('New Products') }}
+            </h2>
+
             <div class="overflow-hidden md:px-4">
                 <section
                     class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 justify-items-center justify-center md:gap-y-20 gap-x-14 mb-5">

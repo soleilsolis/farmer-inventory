@@ -25,14 +25,11 @@
                 <x-field id="description" name="description" type="text" label="Description" ></x-field>   
                 <x-button type="submit">Save</x-button>
             </form>
-
-        
         </div>
     </div>
 
      <script>
         function show(result){
-            
             location.href= `/product/${result.data.id}`;
         }
     </script>
