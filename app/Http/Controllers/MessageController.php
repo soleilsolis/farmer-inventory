@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Message;
 use App\Http\Requests\StoreMessageRequest;
 use App\Http\Requests\UpdateMessageRequest;
+use App\Http\Requests\NotifyPricesRequest;
+
 use Illuminate\Support\Facades\Http;
 
 use Carbon\Carbon;
@@ -19,6 +21,7 @@ use Illuminate\Validation\Rule;
 use Twilio\Rest\Client;
 
 use App\Models\User;
+use App\Models\Product;
 
 class MessageController extends Controller
 {
@@ -74,6 +77,39 @@ class MessageController extends Controller
         }
 
     
+
+        return response()->json([]);
+    }
+
+    public function notifyPrices(NotifyPricesRequest $request)
+    {
+        $sid = 'AC9eda852d2054096821b4e7c4031e0c8c';
+        $token = '7b9ab2a83cda7332c666cd18fe7405cf';
+        $client = new Client($sid, $token);
+        
+        $product = Product::find($request->product_id);
+
+
+        foreach ($request->user_id as $user_id) {
+            $user = User::find($user_id);
+
+            if ($user->number) {
+                $client->messages->create(
+                    // the number you'd like to send the message to
+                    '+63' . ltrim($user->number, '0'),
+                    [
+                        // A Twilio phone number you purchased at twilio.com/console
+                        'from' => '+15855844760',
+                        // the body of the text message you'd like to send
+                        'body' => "Mga ka Agri-Advice! Ang presyo ng {$product->name} ay ₱{$product->price}. "
+                    ]
+                );
+
+                $message = Message::create([
+                    'value' => "Mga ka Agri-Advice! Ang presyo ng {$product->name} ay ₱{$product->price}. ",
+                ]);
+            }
+        }
 
         return response()->json([]);
     }

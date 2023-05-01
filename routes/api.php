@@ -54,6 +54,7 @@ Route::controller(VariantController::class)->group(function() {
 
 Route::controller(MessageController::class)->group(function() {
     Route::post('/messages', 'store');
+    Route::post('/notifyPrices', 'notifyPrices');
 });
 
 Route::controller(User::class)->group(function() {

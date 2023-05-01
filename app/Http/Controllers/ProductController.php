@@ -72,9 +72,14 @@ class ProductController extends Controller
         $product = $product->findOrFail($request->id);
         $productTypes = ProductType::all();
         $variant = $request->variant_id ? Variant::findOrFail($request->variant_id) : null;
-        $productsRandom = Product::inRandomOrder()->limit(5)->get();
+        $productsRandom = Product::inRandomOrder()
+                            ->where('id', '!=', $request->id)
+                            ->limit(5)
+                            ->get();
 
-        return view('product-show', compact('product', 'productTypes', 'variant', 'productsRandom'));
+        $users = User::where('admin', '=', 0)->get();
+
+        return view('product-show', compact('product', 'productTypes', 'variant', 'productsRandom', 'users'));
     }
 
     /**
