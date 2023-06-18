@@ -29,9 +29,7 @@
     </x-slot>
 
     <div class="pb-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative">
-
-            
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative">   
             @if (\App\Models\User::find(\Illuminate\Support\Facades\Auth::id())->admin)
             <form class="md:w-[50%] submit-form"
                 data-method="POST"
