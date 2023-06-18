@@ -3,10 +3,6 @@
     "file": "assets/DA-Logo-Header-Banner-1-47e7cc19.png",
     "src": "resources/image/DA-Logo-Header-Banner-1.png"
   },
-  "resources/image/bbb.svg": {
-    "file": "assets/bbb-de9db1a6.svg",
-    "src": "resources/image/bbb.svg"
-  },
   "resources/image/23.avif": {
     "file": "assets/23-37556e89.avif",
     "src": "resources/image/23.avif"
@@ -15,31 +11,34 @@
     "file": "assets/bg-app-d7b397a5.svg",
     "src": "resources/image/bg-app.svg"
   },
+  "resources/image/bbb.svg": {
+    "file": "assets/bbb-de9db1a6.svg",
+    "src": "resources/image/bbb.svg"
+  },
   "resources/image/bg-guest.png": {
     "file": "assets/bg-guest-ce68d7e5.png",
     "src": "resources/image/bg-guest.png"
-  },
-  "resources/image/bg-app.svg": {
-    "file": "assets/bg-app-d7b397a5.svg",
-    "src": "resources/image/bg-app.svg"
   },
   "resources/image/bg-guest.svg": {
     "file": "assets/bg-guest-3dbc116f.svg",
     "src": "resources/image/bg-guest.svg"
   },
-  "resources/image/bg.svg": {
-    "file": "assets/bg-068ad94b.svg",
-    "src": "resources/image/bg.svg"
+  "resources/image/81gy80--ThL.jpg": {
+    "file": "assets/81gy80--ThL-dc810462.jpg",
+    "src": "resources/image/81gy80--ThL.jpg"
   },
   "resources/image/bg2.jpg": {
     "file": "assets/bg2-c637bb21.jpg",
     "src": "resources/image/bg2.jpg"
   },
-  "resources/image/81gy80--ThL.jpg": {
-    "file": "assets/81gy80--ThL-dc810462.jpg",
-    "src": "resources/image/81gy80--ThL.jpg"
+  "resources/image/bg.svg": {
+    "file": "assets/bg-068ad94b.svg",
+    "src": "resources/image/bg.svg"
   },
-<<<<<<< HEAD
+  "resources/image/low-poly-grid-haikei (6).svg": {
+    "file": "assets/low-poly-grid-haikei (6)-bc0492bd.svg",
+    "src": "resources/image/low-poly-grid-haikei (6).svg"
+  },
   "resources/image/logo-dark.56ef4806.png": {
     "file": "assets/logo-dark.56ef4806-56ef4806.png",
     "src": "resources/image/logo-dark.56ef4806.png"
@@ -47,34 +46,17 @@
   "resources/image/pellet.png": {
     "file": "assets/pellet-adbaee29.png",
     "src": "resources/image/pellet.png"
-=======
-  "resources/image/bg.svg": {
-    "file": "assets/bg-068ad94b.svg",
-    "src": "resources/image/bg.svg"
->>>>>>> d8717d1584a8a558e3a6a03da6bc27b561633c7b
-  },
-  "resources/image/logo-dark.56ef4806.png": {
-    "file": "assets/logo-dark.56ef4806-56ef4806.png",
-    "src": "resources/image/logo-dark.56ef4806.png"
   },
   "resources/image/Group-Sack.png": {
     "file": "assets/Group-Sack-0af96274.png",
     "src": "resources/image/Group-Sack.png"
-  },
-  "resources/image/low-poly-grid-haikei (6).svg": {
-    "file": "assets/low-poly-grid-haikei (6)-bc0492bd.svg",
-    "src": "resources/image/low-poly-grid-haikei (6).svg"
   },
   "resources/image/bg.jpg": {
     "file": "assets/bg-610fe542.jpg",
     "src": "resources/image/bg.jpg"
   },
   "resources/css/app.css": {
-<<<<<<< HEAD
     "file": "assets/app-b7771f7c.css",
-=======
-    "file": "assets/app-e7500c4f.css",
->>>>>>> d8717d1584a8a558e3a6a03da6bc27b561633c7b
     "src": "resources/css/app.css",
     "isEntry": true
   },
