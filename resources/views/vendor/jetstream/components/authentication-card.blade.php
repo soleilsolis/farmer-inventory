@@ -14,8 +14,4 @@
             </div>
         </div>
     </div>
-    
-    <div class="absolute bottom-0 left-0 ml-5 mb-5 text-green-500 font-bold text-8xl drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]" style="">
-        ROXAS, ISABELA
-    </div>
 </div>

@@ -36,7 +36,6 @@
                             </a>
                         </div>
                     @endforeach
-   
 
                 </section>
             </div>
@@ -45,4 +44,3 @@
 </x-app-layout>
 
 @section('title', "Dashboard")
-    
