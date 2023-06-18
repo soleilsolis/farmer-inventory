@@ -23,7 +23,7 @@
                     <x-button type="submit">Save</x-button>
                     
                     <form id="dropdown"
-                        data-method="POST"
+                        data-method="DELETE"
                         data-action="/variant/{{ $variant->id }}" data-callback="show"
                         class="submit-form">
                         

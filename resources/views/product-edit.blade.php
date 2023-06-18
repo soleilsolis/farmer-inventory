@@ -35,7 +35,7 @@
                 </div>
             </form>
 
-            <form id="dropdown" data-method="POST" data-action="/product/{{ $product->id }}"
+            <form id="dropdown" data-method="DELETE" data-action="/product/{{ $product->id }}"
                 data-callback="destroy" class="submit-form inline">
 
                 <x-button-danger type="submit">Delete</x-button-danger>
@@ -106,6 +106,10 @@
 
     <script>
         const show = (result) => document.getElementById("toast-success").classList.remove("hidden", "opacity-0");
-        const destroy = (result) => location.href = "/products";
+    
+
+        function destroy() {
+            location.href = "/products";
+        }
     </script>
 </x-app-layout>

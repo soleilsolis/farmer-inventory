@@ -34,27 +34,26 @@ Route::controller(ProductTypeController::class)->group(function() {
     Route::get('/productType/{id}', 'show');
     Route::post('/productTypes', 'store');
     Route::post('/productType/{id}', 'update');
-    Route::post('/productType/{id}', 'destroy');
+    Route::delete('/productType/{id}', 'destroy');
 });
 
 Route::controller(ProductController::class)->group(function() {
     Route::get('/product/{id}', 'show');
     Route::post('/products', 'store');
     Route::post('/product/{id}', 'update');
-    Route::post('/product/{id}', 'destroy');
+    Route::delete('/product/{id}', 'destroy');
 });
 
 Route::controller(VariantController::class)->group(function() {
     Route::get('/variant/{id}', 'show');
     Route::post('/variants', 'store');
     Route::post('/variant/{id}', 'update');
-    Route::post('/variant/{id}', 'destroy');
+    Route::delete('/variant/{id}', 'destroy');
 });
 
 
 Route::controller(MessageController::class)->group(function() {
     Route::post('/messages', 'store');
-    Route::post('/notifyPrices', 'notifyPrices');
 });
 
 Route::controller(User::class)->group(function() {
@@ -62,5 +61,5 @@ Route::controller(User::class)->group(function() {
     Route::get('/uses/{id}', 'show');
     Route::post('/users', 'store');
     Route::post('/user/{id}', 'update');
-    Route::post('/user/{id}', 'destroy');
+    Route::delete('/user/{id}', 'destroy');
 });
