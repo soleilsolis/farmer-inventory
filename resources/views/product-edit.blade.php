@@ -105,8 +105,9 @@
     </div>
 
     <script>
-        const show = (result) => document.getElementById("toast-success").classList.remove("hidden", "opacity-0");
-    
+        function show () {
+            document.getElementById("toast-success").classList.remove("hidden", "opacity-0");
+        }
 
         function destroy() {
             location.href = "/products";

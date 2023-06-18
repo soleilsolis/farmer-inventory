@@ -26,14 +26,10 @@
                         data-method="DELETE"
                         data-action="/variant/{{ $variant->id }}" data-callback="show"
                         class="submit-form">
-                        
-                                <x-button-danger type="submit">Delete</x-button-danger>
-                      
+                            <x-button-danger type="submit">Delete</x-button-danger>
                     </form>
                 </div>
             </form>
-
-
        
             <!-- Dropdown menu -->
            
