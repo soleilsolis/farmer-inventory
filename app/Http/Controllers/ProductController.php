@@ -114,32 +114,36 @@ class ProductController extends Controller
         if ($request->price != $data->price) {
             $data->price = $request->price;
 
-            $sid = 'AC9eda852d2054096821b4e7c4031e0c8c';
-            $token = 'e8ae113e3da2846cfc2b61301dd1895d';
-            $client = new Client($sid, $token);
-
-            foreach (User::all() as $user) {
-                if ($user->number) {
-                    $message = "Mga ka Agri! Nag bago ang presyo ng {$data->name} ({$data->price}). Maraming Salamat";
-                    $client->messages->create(
-                        // the number you'd like to send the message to
-                        '+63' . ltrim($user->number, '0'),
-                        [
-                            // A Twilio phone number you purchased at twilio.com/console
-                            'from' => '+15855844760',
-                            // the body of the text message you'd like to send
-                            'body' => "Mga ka Agri! Nag bago ang presyo ng {$data->name} ({$data->price}). Maraming Salamat"
-                        ]
-                    );
-
-                    $message = Message::create([
-                        'value' => $message,
-                    ]);
-                }
-
-            }
-
           
+            try {
+                $sid = 'AC9eda852d2054096821b4e7c4031e0c8c';
+                $token = 'e8ae113e3da2846cfc2b61301dd1895d';
+                $client = new Client($sid, $token);
+    
+                foreach (User::all() as $user) {
+                    if ($user->number) {
+                        $message = "Mga ka Agri! Nag bago ang presyo ng {$data->name} ({$data->price}). Maraming Salamat";
+                        $client->messages->create(
+                            // the number you'd like to send the message to
+                            '+63' . ltrim($user->number, '0'),
+                            [
+                                // A Twilio phone number you purchased at twilio.com/console
+                                'from' => '+15855844760',
+                                // the body of the text message you'd like to send
+                                'body' => "Mga ka Agri! Nag bago ang presyo ng {$data->name} ({$data->price}). Maraming Salamat"
+                            ]
+                        );
+    
+                        $message = Message::create([
+                            'value' => $message,
+                        ]);
+                    }
+    
+                }
+    
+            } catch (\Throwable $th) {
+                //throw $th;
+            } 
         }
 
         if ($request->file('image')) {
