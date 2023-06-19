@@ -106,7 +106,7 @@
 
     <script>
         function show (result) {
-            location.href = "/products/{{ $product->id }}/edit";
+            location.href = "/product/{{ $product->id }}/edit";
 
         }
 
