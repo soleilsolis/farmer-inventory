@@ -114,7 +114,6 @@ class ProductController extends Controller
         if ($request->price != $data->price) {
             $data->price = $request->price;
 
-          
             try {
                 $sid = 'AC9eda852d2054096821b4e7c4031e0c8c';
                 $token = 'e8ae113e3da2846cfc2b61301dd1895d';
