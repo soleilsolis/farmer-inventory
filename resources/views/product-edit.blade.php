@@ -107,7 +107,6 @@
     <script>
         function show (result) {
             location.href = "/product/{{ $product->id }}/edit";
-
         }
 
         function destroy() {

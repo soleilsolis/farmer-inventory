@@ -77,28 +77,6 @@
                     </div>
                 </div>
             </div>
-            
-            @if ($admin)
-                <h2 class="font-medium text-xl text-gray-800 leading-tight mb-5 mt-10 ">Notify Farmers</h2>
-                <div class="px-4">
-                    <form class="submit-form"
-                        data-method="POST"
-                        data-action="/notifyPrices"
-                        data-callback="show">
-                        <x-field id="product_id" name="product_id" type="hidden" value="{{ $product->id }}"></x-field>
-
-                        <x-field id="user_id" name="user_id[]" type="select" multiple="multiple">
-                            @foreach ($users as $user)
-                                <option value="{{ $user->id }}">
-                                    {{ $user->name }} - {{ $user->number }}
-                                </option>
-                            @endforeach
-                        </x-field>
-
-                        <x-button type="submit">Send SMS</x-button>
-                    </form>
-                </div>
-            @endif
 
             <h2 class="font-medium text-xl text-gray-800 leading-tight mb-5 mt-10 ">Other Products</h2>
             <div class="overflow-hidden px-4">

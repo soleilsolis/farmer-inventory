@@ -113,7 +113,5 @@ class VariantController extends Controller
     {
         $variant = $variant->find($request->id);
         $variant->delete();
-
-        
     }
 }
