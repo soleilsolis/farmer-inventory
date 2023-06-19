@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-2xl text-gray-800 leading-tight ">
+        <h2 id="product-name" class="font-semibold text-2xl text-gray-800 leading-tight ">
             {{ __($product->name) }}
         </h2>
     </x-slot>
@@ -105,7 +105,8 @@
     </div>
 
     <script>
-        function show () {
+        function show (result) {
+            document.getElementById("product-name").innerHTML = result.name;
             document.getElementById("toast-success").classList.remove("hidden", "opacity-0");
         }
 
