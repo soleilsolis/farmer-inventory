@@ -115,7 +115,7 @@ class ProductController extends Controller
             $data->price = $request->price;
 
             $sid = 'AC9eda852d2054096821b4e7c4031e0c8c';
-            $token = 'be035ddd204cf5b34d6be040e7f42c3d';
+            $token = 'e8ae113e3da2846cfc2b61301dd1895d';
             $client = new Client($sid, $token);
 
             foreach (User::all() as $user) {
