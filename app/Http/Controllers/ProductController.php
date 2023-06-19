@@ -24,7 +24,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::limit(10)->get();
+        $products = Product::all();
 
         return view('products', compact('products'));
     }

@@ -39,6 +39,12 @@
                 <x-field id="name" name="name" type="text" label="Name" value="{{ __($productType->name) }}"></x-field>   
                 <x-button type="submit">Save</x-button>
             </form>
+
+            <form id="dropdown" data-method="DELETE" data-action="/productType/{{ $productType->id }}"
+                data-callback="reload" class="submit-form inline">
+
+                <x-button-danger type="submit">Delete</x-button-danger>
+            </form>
             @endif
 
             <div class="overflow-hidden px-4">

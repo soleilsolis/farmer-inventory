@@ -54,7 +54,7 @@ class ProductTypeController extends Controller
      */
     public function show(ProductType $productType, Request $request)
     {
-        $data = $productType->find($request->id);
+        $data = $productType->findOrFail($request->id);
 
         return response()->json(compact('data'));
     }
@@ -67,7 +67,7 @@ class ProductTypeController extends Controller
      */
     public function edit(ProductType $productType, Request $request)
     {
-        $productType = $productType->find($request->id);
+        $productType = $productType->findOrFail($request->id);
 
         return view('productType', compact('productType'));
     }
