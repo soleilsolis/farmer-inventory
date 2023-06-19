@@ -8,7 +8,7 @@
     <div class="pb-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 relative">
             <form class=" submit-form grid md:grid-cols-2 md:gap-10 grid-cols-1 gap-y-5" data-method="POST"
-                data-action="/product/{{ $product->id }}" data-callback="show">
+                data-action="/product/{{ $product->id }}" data-callback="reload">
                 <div class="md:order-first order-last">
                     <x-field id="name" name="name" type="text" label="Name" value="{{ __($product->name) }}">
                     </x-field>
