@@ -49,7 +49,7 @@
          
             </div>
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-                <img src="{{ Vite::asset("resources/image/Group-Sack.png") }}" alt="mockup">
+                <img src="{{ Vite::asset("resources/image/fertilizer.png") }}" alt="mockup">
             </div>                
         </div>
     </section>
