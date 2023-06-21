@@ -22,7 +22,14 @@
                     @endforeach
                 </x-field>   
 
+                <x-field id="seller_id" name="product_type_id" type="select" label="Seller" >
+                    @foreach ($sellers as $seller)
+                        <option value="{{ $seller->id }}">{{ $seller->name }}</option>
+                    @endforeach
+                </x-field>   
+
                 <x-field id="description" name="description" type="text" label="Description" ></x-field>   
+                <x-field id="advice" name="advice" type="text" label="Advice" ></x-field>   
                 <x-button type="submit">Save</x-button>
             </form>
         </div>

@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VariantController;
+use App\Http\Controllers\ProductTypeVariantController;
+use App\Http\Controllers\SellerController;
 use App\Models\User;
 
 use App\Models\Product;
@@ -43,6 +45,12 @@ Route::middleware([
     Route::get('/productTypes', [ProductTypeController::class, 'index'])->name('productTypes');
     Route::get('/productType/{id}', [ProductTypeController::class, 'edit'])->name('productType');
 
+    Route::get('/productTypeVariants', [ProductTypeVariantController::class, 'index'])->name('productTypeVariants');
+    Route::get('/productTypeVariant/{id}', [ProductTypeVariantController::class, 'edit'])->name('productTypeVariant');
+    
+    Route::get('/sellers', [SellerController::class, 'index'])->name('sellers');
+    Route::get('/seller/{id}', [SellerController::class, 'edit'])->name('seller');
+
     Route::get('/products', [ProductController::class, 'index'])->name('products');
     Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-show');
 
@@ -51,6 +59,7 @@ Route::middleware([
     
     Route::middleware('admin')->group(function(){
         Route::get('/productTypes/new', [ProductTypeController::class, 'create'])->name('productTypes-new');
+        Route::get('/sellers/new', [SellerController::class, 'create'])->name('seller-new');
         Route::get('/products/new', [ProductController::class, 'create'])->name('products-new');
         Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product-edit');
 

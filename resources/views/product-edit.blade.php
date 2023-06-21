@@ -22,10 +22,21 @@
                         @endforeach
                     </x-field>
 
+                    <x-field id="seller_id" name="seller_id" type="select" label="Sellers"
+                    value="{{ __($product->seller->id) }}">
+                        @foreach ($sellers as $seller)
+                            <option value="{{ $seller->id }}" @if ($product->seller->id == $seller->id) selected @endif>
+                            {{ $seller->name }}</option>
+                        @endforeach
+                    </x-field>
+
                     <x-field id="image" name="image" type="file" label="Image" value=""></x-field>
 
                     <x-field id="description" name="description" type="text" label="Description"
                         value="{{ __($product->description) }}"></x-field>
+
+                        <x-field id="advice" name="advice" type="text" label="Advice"
+                        value="{{ __($product->advice) }}"></x-field>
                     <x-button type="submit">Save</x-button>
                 </div>
 

@@ -7,6 +7,7 @@ use App\Models\Variant;
 use App\Models\ProductType;
 use App\Models\Message;
 use App\Models\User;
+use App\Models\Seller;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
@@ -37,8 +38,9 @@ class ProductController extends Controller
     public function create()
     {
         $productTypes = ProductType::all();
+        $sellers = Seller::all();
 
-        return view('product-new', compact('productTypes'));
+        return view('product-new', compact('productTypes', 'sellers'));
     }
 
     /**
@@ -54,6 +56,8 @@ class ProductController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'product_type_id' => $request->product_type_id,
+            'advice' => $request->advice,
+            'seller_id' => $request->seller_id,
         ]);
 
         ImageController::store($request->file('image'), $data->id, 'App\Models\Product');
@@ -76,10 +80,11 @@ class ProductController extends Controller
                             ->where('id', '!=', $request->id)
                             ->limit(5)
                             ->get();
+        $sellers = Seller::all();
 
         $users = User::where('admin', '=', 0)->get();
 
-        return view('product-show', compact('product', 'productTypes', 'variant', 'productsRandom', 'users'));
+        return view('product-show', compact('product', 'productTypes', 'variant', 'productsRandom', 'users', 'sellers'));
     }
 
     /**
@@ -92,8 +97,9 @@ class ProductController extends Controller
     {
         $product = $product->findOrFail($request->id);
         $productTypes = ProductType::all();
+        $sellers = Seller::all();
 
-        return view('product-edit', compact('product', 'productTypes'));
+        return view('product-edit', compact('product', 'productTypes', 'sellers'));
     }
 
     /**
@@ -110,6 +116,8 @@ class ProductController extends Controller
 
         $data->description = $request->description;
         $data->product_type_id = $request->product_type_id;
+        $data->advice = $request->advice;
+        $data->seller_id = $request->seller_id;
 
         if ($request->price != $data->price) {
             $data->price = $request->price;

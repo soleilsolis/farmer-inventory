@@ -28,6 +28,8 @@ class UpdateProductRequest extends FormRequest
             'price' => "required|numeric|min:1",
             'description' => "required",
             'product_type_id' => "required|numeric",
+            'advice' => "required",
+            'seller_id' => "required",
         ];
     }
 }

@@ -46,15 +46,14 @@
             <div class="place-self-center mr-auto lg:col-span-7">
                 <h1 class="mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">Never guess your farming product prices ever again!</h1>
                 <p class="mb-6 max-w-2xl font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Want to set a budget but can't guess the market prices for your tools and resources? Agri-Advice got you covered!</p>
-         
             </div>
+
             <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
                 <img src="{{ Vite::asset("resources/image/fertilizer.png") }}" alt="mockup">
             </div>                
         </div>
     </section>
 
- 
     <section class="bg-gray-50 dark:bg-gray-800">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
             <div class="mb-8 max-w-screen-md lg:mb-16">

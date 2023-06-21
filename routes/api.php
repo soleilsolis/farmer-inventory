@@ -4,9 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ImageController;
+use App\Http\Controllers\ProductTypeVariantController;
 use App\Http\Controllers\VariantController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\SellerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,11 +38,26 @@ Route::controller(ProductTypeController::class)->group(function() {
     Route::delete('/productType/{id}', 'destroy');
 });
 
+Route::controller(ProductTypeVariantController::class)->group(function() {
+    Route::get('/productTypeVariant/{id}', 'show');
+    Route::post('/productTypeVariants', 'store');
+    Route::post('/productTypeVariant/{id}', 'update');
+    Route::delete('/productTypeVariant/{id}', 'destroy');
+});
+
+
 Route::controller(ProductController::class)->group(function() {
     Route::get('/product/{id}', 'show');
     Route::post('/products', 'store');
     Route::post('/product/{id}', 'update');
     Route::delete('/product/{id}', 'destroy');
+});
+
+Route::controller(SellerController::class)->group(function() {
+    Route::get('/seller/{id}', 'show');
+    Route::post('/sellers', 'store');
+    Route::post('/seller/{id}', 'update');
+    Route::delete('/seller/{id}', 'destroy');
 });
 
 Route::controller(VariantController::class)->group(function() {
