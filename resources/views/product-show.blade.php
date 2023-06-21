@@ -68,6 +68,13 @@
                         <p>
                             {{ $product->description }}
                         </p>
+
+                        <div class="my-5 font-medium">
+                            Advice: 
+                        </div>
+                        <p>
+                            {{ $product->advice }}
+                        </p>
     
                         @if (\App\Models\User::find(\Illuminate\Support\Facades\Auth::id())->admin)
                             <div class="mt-4">
