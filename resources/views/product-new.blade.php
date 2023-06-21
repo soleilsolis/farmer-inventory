@@ -22,7 +22,7 @@
                     @endforeach
                 </x-field>   
 
-                <x-field id="seller_id" name="product_type_id" type="select" label="Seller" >
+                <x-field id="seller_id" name="seller_id" type="select" label="Seller" >
                     @foreach ($sellers as $seller)
                         <option value="{{ $seller->id }}">{{ $seller->name }}</option>
                     @endforeach
